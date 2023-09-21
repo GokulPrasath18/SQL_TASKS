@@ -1,9 +1,9 @@
 -- creating schema sales 
 Create schema sales;
-
+				-- -- 
 -- creating customer table
 create table sales.customer (
-CustomerID int primary key, 
+CustomerID int primary key , 
 Email varchar(30) unique not null, 
 Address Text, 
 Phone char(10) not null,
@@ -31,4 +31,33 @@ DOB ) values
 -- showing output of sales tables
 select * from sales.customer ;
  
+-- using sales schema 
+use sales ;
 
+-- Creating products table from sales schema
+create table sales.products (
+productID int primary key,
+price double(10,2),
+productname varchar(10) not null,
+Description text,
+producttype varchar(20) not null );
+
+select * from sales.products ;
+
+-- Creating orders table from sales schema 
+create table sales.orders (
+OderID int primary key auto_increment,
+CustomerID int ,
+FOREIGN KEY (customerID) REFERENCES sales.customer(customerID),
+productID int ,
+FOREIGN KEY (productID) REFERENCES sales.products(productID),
+OrderDate timestamp ,
+status varchar (20),
+shipping_Address text,
+PaymentMethod varchar(30),
+paymentstatus varchar(20),
+shippingmethod varchar(30),
+trackingNumber varchar(50),
+Notes text );
+
+select * from sales.orders ;
