@@ -38,10 +38,23 @@ use sales ;
 create table sales.products (
 productID int primary key,
 price double(10,2),
-productname varchar(10) not null,
+productname varchar(20) not null,
 Description text,
 producttype varchar(20) not null );
 
+insert into sales.products (productID, 
+price ,
+productname ,
+Description,
+producttype) values 
+(1, 2000, 'Chair', "Quality Wooden products", 'Furniture'),
+(2, 5000, 'Air pods', "Customized designed Air pods", 'Accesseory'),
+(3, 20000, 'Mobile', "Android 5GSamrt Phone", 'Accesseory'),
+(4, 6000, 'Mosqitonet', "covering windows to protect your home from mosquito ", 'Furniture'),
+(5, 5500, 'SmartWatch', "Customized new branded smart watch", 'Accesseory'),
+(6, 10000, 'sofa', "Quatily and silk soft luxury Sofa from niffiya furniture ", 'Furniture');
+
+use sales ;
 select * from sales.products ;
 
 -- Creating orders table from sales schema 
